@@ -1,0 +1,45 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Beers</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Beers </h1>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-6" th:if="${fallback eq 'Service available'}">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Price </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="beer : ${beers}">
+                    <td><span th:text="${beer.name}"> Name </span></td>
+                    <td><span th:text="${beer.price}"> Price </span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row" th:if="${fallback eq 'Service unavailable'}">
+            <h3> SERVICE UNAVAILABLE</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-info" href="#" th:href="@{/}"> Volver </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

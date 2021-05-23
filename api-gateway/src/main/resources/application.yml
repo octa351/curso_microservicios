@@ -1,0 +1,6 @@
+server:
+  port: 8081
+
+api:
+  beer:
+    baseUrl: http://localhost:8080/v1/microservices
